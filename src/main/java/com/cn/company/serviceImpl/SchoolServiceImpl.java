@@ -1,8 +1,8 @@
 package com.cn.company.serviceImpl;
 
-import com.cn.company.daoImpl.QueryDaoImpl;
+import com.cn.company.daoImpl.SchoolDaoImpl;
 import com.cn.company.model.School;
-import com.cn.company.service.QueryService;
+import com.cn.company.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,13 +15,18 @@ import java.util.List;
  * @Version: 1.0.0
  */
 @Service
-public class QueryServiceImpl implements QueryService {
+public class SchoolServiceImpl implements SchoolService {
 
     @Autowired
-    private QueryDaoImpl queryDaoImpl;
+    private SchoolDaoImpl queryDaoImpl;
 
     @Override
     public List<School> querySchool(int id) {
         return queryDaoImpl.querySchool(id);
+    }
+
+    @Override
+    public void save(School school) {
+        queryDaoImpl.save(school);
     }
 }

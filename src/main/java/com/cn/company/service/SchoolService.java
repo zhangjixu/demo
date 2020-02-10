@@ -10,8 +10,9 @@ import java.util.List;
  * @Description:
  * @Version: 1.0.0
  */
-public interface QueryService {
+public interface SchoolService {
 
     List<School> querySchool(int id);
+    void save(School school);
 
 }

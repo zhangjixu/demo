@@ -1,6 +1,6 @@
 package com.cn.company.daoImpl;
 
-import com.cn.company.dao.QueryDao;
+import com.cn.company.dao.SchoolDao;
 import com.cn.company.model.School;
 import com.cn.company.utils.MultipleDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +17,33 @@ import java.util.List;
  * @Version: 1.0.0
  */
 @Repository
-public class QueryDaoImpl implements QueryDao {
+public class SchoolDaoImpl implements SchoolDao {
 
     @Autowired
     private JdbcTemplate mysqlJdbcTemplate;
 
     @Override
     public List<School> querySchool(int id) {
+        setDb(id);
+        String sql = "select * from `school`";
+        List<School> list = mysqlJdbcTemplate.query(sql, new BeanPropertyRowMapper<School>(School.class));
+        return list;
+    }
+
+    @Override
+    public void save(School school) {
+        int id = school.getId();
+        setDb(id);
+        String sql = "insert into school values(?, ?, ?)";
+        mysqlJdbcTemplate.update(sql, school.getId(), school.getName(), school.getModId());
+    }
+
+    public void setDb(int id) {
         if (id == 1) {
             MultipleDataSource.setDataSourceKey("db1");
         } else if (id == 2) {
             MultipleDataSource.setDataSourceKey("db2");
         }
-        String sql = "select * from `school`";
-        List<School> list = mysqlJdbcTemplate.query(sql, new BeanPropertyRowMapper<School>(School.class));
-        return list;
     }
+
 }
