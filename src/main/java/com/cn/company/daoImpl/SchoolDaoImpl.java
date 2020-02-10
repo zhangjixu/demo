@@ -24,7 +24,7 @@ public class SchoolDaoImpl implements SchoolDao {
 
     @Override
     public List<School> querySchool(int id) {
-        setDb(id);
+        MultipleDataSource.setDatabase(id);
         String sql = "select * from `school`";
         List<School> list = mysqlJdbcTemplate.query(sql, new BeanPropertyRowMapper<School>(School.class));
         return list;
@@ -33,17 +33,10 @@ public class SchoolDaoImpl implements SchoolDao {
     @Override
     public void save(School school) {
         int id = school.getId();
-        setDb(id);
+        MultipleDataSource.setDatabase(id);
         String sql = "insert into school values(?, ?, ?)";
         mysqlJdbcTemplate.update(sql, school.getId(), school.getName(), school.getModId());
     }
 
-    public void setDb(int id) {
-        if (id == 1) {
-            MultipleDataSource.setDataSourceKey("db1");
-        } else if (id == 2) {
-            MultipleDataSource.setDataSourceKey("db2");
-        }
-    }
 
 }
