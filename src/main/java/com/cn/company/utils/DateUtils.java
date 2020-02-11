@@ -21,7 +21,8 @@ public class DateUtils {
     private static DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
 
     /**
-     *  给定日期返回指定单位的格式
+     * 给定日期返回指定单位的格式
+     *
      * @param date
      * @param unit d 天 s 秒
      * @return yyyyMMdd or yyyyMMddHHmmss
@@ -43,7 +44,8 @@ public class DateUtils {
     }
 
     /**
-     *  计算相差 diff 天后的日期
+     * 计算相差 diff 天后的日期
+     *
      * @param date yyyyMMdd
      * @param diff
      * @return yyyyMMdd
@@ -60,7 +62,8 @@ public class DateUtils {
     }
 
     /**
-     *  根据时间戳返回规定时间格式
+     * 根据时间戳返回规定时间格式
+     *
      * @param l
      * @return
      * @throws Exception

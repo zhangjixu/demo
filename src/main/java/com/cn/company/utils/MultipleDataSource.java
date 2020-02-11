@@ -17,17 +17,10 @@ public class MultipleDataSource extends AbstractRoutingDataSource {
     public static void setDataSourceKey(String dataSource) {
         dataSourceKey.set(dataSource);
     }
+
     @Override
     protected Object determineCurrentLookupKey() {
         return dataSourceKey.get();
-    }
-
-    public static void setDatabase(int id) {
-        if (id == 1) {
-            MultipleDataSource.setDataSourceKey("db1");
-        } else if (id == 2) {
-            MultipleDataSource.setDataSourceKey("db2");
-        }
     }
 
 }

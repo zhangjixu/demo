@@ -25,6 +25,7 @@ public class EmailUtils {
 
     /************************ 加载配置文件 ************************/
     private static Properties emailProperties = new Properties();
+
     static {
         try (InputStream resourceAsStream = EmailUtils.class.getResourceAsStream("/config/email.properties");) {
             emailProperties.load(resourceAsStream);
@@ -41,15 +42,19 @@ public class EmailUtils {
     private static String username = emailProperties.getProperty("mail.username");
     private static String password = emailProperties.getProperty("mail.password");
     public static String sender = emailProperties.getProperty("mail.sender");
+
     /**
      * 邮件发送
+     *
      * @param to
      * @param subject
      * @param message
      */
     public static void sendEmail(String to, String subject, String message) {
         if (to.contains(",")) {
-            Arrays.asList(to.split(",")).parallelStream().distinct().forEach(subTo -> {_sendEmail(subTo.trim(), subject, message);});
+            Arrays.asList(to.split(",")).parallelStream().distinct().forEach(subTo -> {
+                _sendEmail(subTo.trim(), subject, message);
+            });
         } else {
             _sendEmail(to, subject, message);
         }
@@ -57,6 +62,7 @@ public class EmailUtils {
 
     /**
      * 邮件发送
+     *
      * @param to
      * @param subject
      * @param message

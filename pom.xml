@@ -133,11 +133,10 @@
       <version>5.1.9</version>
     </dependency>
 
-    <!--JSP标准标签库（JSTL）-->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>2.3.0</version>
     </dependency>
 
     <!--添加<scope>provided</scope>，因为provided表明该包只在编译和测试的时候用，所以，当启动tomcat的时候，就不会冲突了-->
@@ -195,6 +194,7 @@
       <build>
         <filters>
           <filter>src/main/resources/develop/mysql.properties</filter>
+          <filter>src/main/resources/develop/kafka.properties</filter>
         </filters>
       </build>
     </profile>
@@ -204,6 +204,7 @@
       <build>
         <filters>
           <filter>src/main/resources/produced/mysql.properties</filter>
+          <filter>src/main/resources/produced/kafka.properties</filter>
         </filters>
       </build>
     </profile>
