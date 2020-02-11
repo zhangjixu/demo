@@ -14,7 +14,7 @@ public class ProducerUtils {
 
     static {
         //Assign localhost id
-        props.put("bootstrap.servers", "192.168.0.5:9092");
+        props.put("bootstrap.servers", ":9092");
 
         //Set acknowledgements for producer requests.
         props.put("acks", "all");
