@@ -1,4 +1,4 @@
-package com.cn.company.utils;
+package com.cn.fehorizon.crm.interactive.util;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

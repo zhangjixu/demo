@@ -1,4 +1,4 @@
-package com.cn.company.utils;
+package com.cn.fehorizon.crm.interactive.util;
 
 import com.google.common.base.Strings;
 import org.apache.commons.mail.DefaultAuthenticator;

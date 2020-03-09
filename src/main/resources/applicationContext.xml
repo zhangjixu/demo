@@ -12,7 +12,7 @@
     <import resource="classpath*:spring-mysql.xml"/>
 
     <!-- 自动扫描该目录下的@Component @Controller @Service等这些注解的类，则把这些类注册为bean-->
-    <context:component-scan base-package="com.cn.company">
+    <context:component-scan base-package="com.cn.fehorizon.crm.interactive">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 

@@ -32,8 +32,8 @@
         <!--程序中的连接超时时间，以秒为单位-->
         <property name="removeAbandonedTimeout" value="30"/>
         <!--SQL查询,用来验证从连接池取出的连接,在将连接返回给调用者之前.如果指定,则查询必须是一个SQL SELECT并且必须返回至少一行记录-->
-        <property name="validationQuery" value="${validationQuery}" />
-        <property name="validationQueryTimeout" value="${validationQueryTimeout}" />
+        <property name="validationQuery" value="${validationQuery}"/>
+        <property name="validationQueryTimeout" value="${validationQueryTimeout}"/>
         <property name="defaultAutoCommit" value="true"/>
     </bean>
 
@@ -61,12 +61,12 @@
         <!--程序中的连接超时时间，以秒为单位-->
         <property name="removeAbandonedTimeout" value="30"/>
         <!--SQL查询,用来验证从连接池取出的连接,在将连接返回给调用者之前.如果指定,则查询必须是一个SQL SELECT并且必须返回至少一行记录-->
-        <property name="validationQuery" value="${validationQuery}" />
-        <property name="validationQueryTimeout" value="${validationQueryTimeout}" />
+        <property name="validationQuery" value="${validationQuery}"/>
+        <property name="validationQueryTimeout" value="${validationQueryTimeout}"/>
     </bean>
 
     <!-- 配置 mysql 多数据源 -->
-    <bean id="multipleDataSource" class="com.cn.company.utils.MultipleDataSource">
+    <bean id="multipleDataSource" class="com.cn.fehorizon.crm.interactive.util.MultipleDataSource">
         <property name="targetDataSources">
             <map>
                 <entry key="db1" value-ref="db1"></entry>
@@ -74,7 +74,7 @@
             </map>
         </property>
         <!-- 这里可以指定默认的数据源 -->
-        <property name="defaultTargetDataSource" ref="db1" />
+        <property name="defaultTargetDataSource" ref="db1"/>
     </bean>
 
 
@@ -90,5 +90,5 @@
     <!--使用注释事务 -->
     <!-- 如果 "proxy-target-class" 属值被设置为 "true"，那么基于类的代理将起作用（这时需要 CGLIB 库cglib.jar在CLASSPATH中） -->
     <!-- 如果 "proxy-target-class" 属值被设置为 "false" 或者这个属性被省略，那么标准的JDK基于接口的代理将起作用  -->
-    <tx:annotation-driven proxy-target-class="true"  transaction-manager = "txManager" />
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="txManager"/>
 </beans>
